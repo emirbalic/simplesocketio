@@ -12,6 +12,7 @@ io.on('connection', (socket) => {
         console.log(dataFromClient);
     })
     socket.on('NewMessageToServer', (msg) => {
-        console.log(msg);
+        // console.log(msg);
+        io.emit('MessageToClients', {text: msg.text});
     })
 })

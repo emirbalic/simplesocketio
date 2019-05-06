@@ -42,6 +42,11 @@ document.querySelector('#message-form').addEventListener('submit', (event) => {
     const newMessage = document.querySelector('#user-message').value;
     // console.log(newMessage);
     socket.emit("NewMessageToServer", {text: newMessage});
+});
+
+socket.on('MessageToClients', (msg)=> {
+    // console.log(msg);
+    document.querySelector('#messages').innerHTML += `<li>${msg.text}</li>`;
 })
 
 // socket.on('ping', ()=> {
