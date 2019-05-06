@@ -1,0 +1,17 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js">
+</script>
+<script>
+
+    const socket = io('http://localhost:8080');
+
+    console.log(socket);
+
+    socket.on('connect', (event) => {
+       
+        socket.on('welcome', (message) => {
+            console.log(message);
+        });
+        socket.emit('message', {data: 'Hi, I am the message'})
+  
+    });
+</script>
